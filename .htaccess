@@ -1,0 +1,63 @@
+
+ErrorDocument 404 404.php
+
+AddDefaultCharset UTF-8
+Options +FollowSymlinks
+RewriteEngine On
+
+# Make all PHP code look like HTML  --- Rule 1
+#  AddType application/x-httpd-php .htm .html    # USE TO MAKE HTML WORK AS PHP FILE
+
+
+
+RewriteRule ^login/*$ login.php [NC,L,QSA] #login
+RewriteRule ^logout/*$ logout.php [NC,L,QSA] #logout
+
+RewriteRule ^register-admin/*$ register-admin.php [NC,L,QSA] #register-admin
+RewriteRule ^change-password/*$ changepassword.php [NC,L,QSA] #change password
+RewriteRule ^mailbox/*$ mailbox.php [NC,L,QSA] #mailbox
+RewriteRule ^compose/*$ compose.php [NC,L,QSA] #compose Email
+RewriteRule ^compose/([0-9]+)/*$ compose.php?id=$1 [NC,L,QSA] #Reply Email
+RewriteRule ^mail-details/([0-9]+)/*$ mail-details.php?id=$1 [NC,L,QSA] #mail details
+RewriteRule ^office-users/*$ contacts.php?id=$1 [NC,L,QSA] #contacts of users
+RewriteRule ^user-profile/([0-9]+)/*$ user-profile.php?id=$1 [NC,L,QSA] #profile
+RewriteRule ^orders-collected/*$ lead/orders-collected.php [NC,L,QSA] #Order collected
+
+
+
+RewriteRule ^events/*$ lead/add-events.php [NC,L,QSA] #create an Event
+RewriteRule ^calendar/*$ lead/all-calendar.php [NC,L,QSA] #All Calendar
+RewriteRule ^my-calendar/*$ lead/my-calendar.php [NC,L,QSA] #All Calendar
+
+RewriteRule ^create-lead/*$ lead/create-lead.php [NC,L,QSA] #create a lead
+RewriteRule ^view-my-lead/*$ lead/view-my-lead.php [NC,L,QSA] #view all my leads
+RewriteRule ^view-all-leads/*$ lead/view-all-leads.php [NC,L,QSA] #view all company leads
+RewriteRule ^view-all-leads/([0-9]+)/*$ lead/view-all-leads.php?id=$1 [NC,L,QSA] #view all my leads
+RewriteRule ^view-my-lead/([0-9]+)/*$ lead/view-my-lead.php?id=$1 [NC,L,QSA] #view all my leads
+RewriteRule ^lead-profile/([0-9]+)/*$ lead/lead-profile.php?id=$1 [NC,L,QSA] #view lead profile
+RewriteRule ^edit-lead/([0-9]+)/*$ lead/edit-lead.php?id=$1 [NC,L,QSA] #edit-lead information
+RewriteRule ^edit-lead-product/([0-9]+)/([0-9]+)/*$ lead/edit-lead-product.php?id=$1&demandID=$2 [NC,L,QSA] #edit lead products information
+RewriteRule ^add-lead-product/([0-9]+)/*$ lead/add-lead-product.php?id=$1 [NC,L,QSA] #mail details
+RewriteRule ^invoice/([0-9]+)/([0-9]+)/([0-9]+)/([0-9]+)/*$ lead/invoice.php?getLeadID=$1&getDemandID=$2&vat=$3&sof=$4 [NC,L,QSA] #invoice information
+
+RewriteRule ^ticket/([A-Za-z0-9-_]+)/([0-9]+)/*$ lead/downloads.php?id=$1&vat=$2 [NC,L,QSA] #PDF version of invoice
+RewriteRule ^ticket-2/([A-Za-z0-9-_]+)/([0-9]+)/*$ lead/downloads2.php?id=$1&vat=$2 [NC,L,QSA] #PDF version of invoice
+RewriteRule ^monthly-sales/*$ mgt/monthly-sales.php [NC,L,QSA] #view monthly sales Graph
+RewriteRule ^yearly-sales/*$ mgt/yearly-sales.php [NC,L,QSA] #view yearly sales Graph
+
+
+RewriteRule ^revisit/*$ lead/revisit.php [NC,L,QSA] #Revisit Date
+
+
+RewriteRule ^view-my-prospects/*$ lead/my-prospects.php [NC,L,QSA] #view all my prospects
+RewriteRule ^view-my-suspects/*$ lead/view-my-suspects.php [NC,L,QSA] #view all my suspects
+RewriteRule ^add-mps/([0-9]+)/*$ lead/add-mps-info.php?id=$1 [NC,L,QSA] #add mps info
+RewriteRule ^edit-mps/([0-9]+)/([0-9]+)/*$ lead/edit-mps.php?id=$1&leadDemandID=$2 [NC,L,QSA] #edit mps info
+
+
+
+
+
+
+
+
